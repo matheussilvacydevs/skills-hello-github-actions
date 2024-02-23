@@ -14,50 +14,48 @@ _Create a GitHub Action and use it in a workflow._
 </header>
 
 <!--
-  <<< Author notes: Course start >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
+  <<< Author notes: Step 1 >>>
+  Choose 3-5 steps for your course.
+  The first step is always the hardest, so pick something easy!
+  Link to docs.github.com for further explanations.
+  Encourage users to open new tabs for steps!
 -->
 
-## Welcome
+## Step 1: Create a workflow file
 
-Automation is key for streamlining your work processes, and [GitHub Actions](https://docs.github.com/actions) is the best way to supercharge your workflow.
+_Welcome to "Hello GitHub Actions"! :wave:_
 
-- **Who is this for**: Developers, DevOps engineers, students, managers, teams, GitHub users.
-- **What you'll learn**: How to create workflow files, trigger workflows, and find workflow logs.
-- **What you'll build**: An Actions workflow that will check emoji shortcode references in Markdown files.
-- **Prerequisites**: In this course you will work with issues and pull requests, as well as edit files. We recommend you take the [Introduction to GitHub](https://github.com/skills/introduction-to-github) course first.
-- **How long**: This course can be finished in less than two hours.
+**What is _GitHub Actions_?**: GitHub Actions is a flexible way to automate nearly every aspect of your team's software workflow. You can automate testing, continuously deploy, review code, manage issues and pull requests, and much more. The best part, these workflows are stored as code in your repository and easily shared and reused across teams. To learn more, check out these resources:
 
-In this course, you will:
+- The GitHub Actions feature page, see [GitHub Actions](https://github.com/features/actions).
+- The "GitHub Actions" user documentation, see [GitHub Actions](https://docs.github.com/actions).
 
-1. Create a workflow
-2. Add a job
-3. Add actions
-4. Merge your pull request
-5. See the action run
+**What is a _workflow_?**: A workflow is a configurable automated process that will run one or more jobs. Workflows are defined in special files in the `.github/workflows` directory and they execute based on your chosen event. For this exercise, we'll use a `pull_request` event.
 
-### How to start this course
+- To read more about workflows, jobs, and events, see "[Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)".
+- If you want to learn more about the `pull_request` event before using it, see "[pull_request](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)".
 
-<!-- For start course, run in JavaScript:
-'https://github.com/new?' + new URLSearchParams({
-  template_owner: 'skills',
-  template_name: 'hello-github-actions',
-  owner: '@me',
-  name: 'skills-hello-github-actions',
-  description: 'My clone repository',
-  visibility: 'public',
-}).toString()
--->
+To get you started, we used actions to go ahead and made a branch and pull request for you.
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=hello-github-actions&owner=%40me&name=skills-hello-github-actions&description=My+clone+repository&visibility=public)
+### :keyboard: Activity: Create a workflow file
 
-1. Right-click **Start course** and open the link in a new tab.
-2. In the new tab, most of the prompts will automatically fill in for you.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   - Scroll down and click the **Create repository** button at the bottom of the form.
-3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+1. Open a new browser tab, and navigate to this same repository. Then, work on the steps in your second tab while you read the instructions in this tab.
+1. Create a pull request to view all the changes you'll make throughout this course. Click the **Pull Requests** tab, click **New pull request**, set `base: main` and `compare:welcome-workflow`, click **Create pull request**.
+1. Navigate to the **Code** tab.
+1. From the **main** branch dropdown, click on the **welcome-workflow** branch.
+1. Navigate to the `.github/workflows/` folder, then select **Add file** and click on **Create new file**.
+1. In the **Name your file...** field, enter `welcome.yml`.
+1. Add the following content to the `welcome.yml` file:
+   ```yaml
+   name: Post welcome comment
+   on:
+     pull_request:
+       types: [opened]
+   permissions:
+     pull-requests: write
+   ```
+1. To commit your changes, click **Commit new file**.
+1. Wait about 20 seconds for actions to run, then refresh this page (the one you're following instructions from) and an action will automatically close this step and open the next one.
 
 <footer>
 
