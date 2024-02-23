@@ -89,3 +89,11 @@ jobs:
           from_step: 0
           to_step: 1
           branch_name: welcome-workflow
+
+
+          name: Post welcome comment
+on:
+  pull_request:
+    types: [opened]
+permissions:
+  pull-requests: write
